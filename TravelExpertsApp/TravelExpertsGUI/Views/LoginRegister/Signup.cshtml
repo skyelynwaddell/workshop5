@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Signup";
+}
+<div>
+    <h1>Signup</h1>
+    <div>
+        <form class="d-flex col" asp-action="RegisterUser">
+            @* Email *@
+            <label class="form-label" for="username">Username</label>
+            <input class="mb-2 form-control" type="text" name="username" id="username" value="" placeholder="Enter username..." />
+
+            @* Password *@
+            <label class="form-label" for="password">Password</label>
+            <input class="mb-2 form-control" type="text" name="password" id="password" value="" placeholder="Enter password..." />
+            
+            @* Confirm Password *@
+            <label class="form-label" for="confirmpassword">Confirm Password</label>
+            <input class="mb-2 form-control" type="text" name="confirmpassword" id="confirmpassword" value="" placeholder="Confirm password..." />
+
+            @* Signup Button *@
+            <button type="submit" class="btn btn-primary">Signup</button>
+        </form>
+    </div>
+</div>

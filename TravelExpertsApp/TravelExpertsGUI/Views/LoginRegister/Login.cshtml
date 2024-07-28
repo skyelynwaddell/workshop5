@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+<div>
+    <h1>Login</h1>
+    <div>
+        <form class="d-flex col" asp-action="Login">
+            @* Username *@
+            <label class="form-label" for="username">Username</label>
+            <input class="mb-2 form-control" type="text" name="username" id="username" value="" placeholder="Enter username..." />
+
+            @* Password *@
+            <label class="form-label" for="password">Password</label>
+            <input class="mb-2 form-control" type="text" name="password" id="password" value="" placeholder="Enter password..." />
+
+            @* Login Button *@
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+</div>

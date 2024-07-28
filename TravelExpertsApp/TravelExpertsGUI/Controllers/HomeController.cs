@@ -8,22 +8,35 @@ namespace TravelExpertsGUI.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        /// <summary>
+        /// Home Controller
+        /// </summary>
+        /// <param name="logger"></param>
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
 
+        /// <summary>
+        /// Index [GET]
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        /// <summary>
+        /// Contact Us [GET]
+        /// </summary>
+        /// <returns></returns
+        public IActionResult ContactUs()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

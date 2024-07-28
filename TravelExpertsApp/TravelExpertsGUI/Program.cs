@@ -14,6 +14,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddSession(); // needed to use session state object
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -29,11 +30,13 @@ else
 }
 
 app.UseHttpsRedirection();
+app.UseStatusCodePages();
 app.UseStaticFiles();
-
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
+app.UseSession(); //needed for session state
+app.MapRazorPages();
 
 app.MapControllerRoute(
     name: "default",

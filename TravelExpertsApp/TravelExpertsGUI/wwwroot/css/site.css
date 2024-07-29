@@ -1,3 +1,508 @@
 .col{
     flex-direction: column !important;
 }
+
+/* Created by Skye Waddell
+May 2024 | OOSD - Web Development | Travel Project 
+CRPG-210-A */
+
+.banner {
+    width: 100%;
+    min-height: 6em;
+    justify-content: center;
+    align-items: center;
+    margin-top:-15px;
+}
+
+.logo {
+    width: 70px;
+}
+
+.robotCheck {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    padding-right: 10px;
+}
+
+.table2 {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
+.button {
+    margin-top: 10px;
+    width: 5em;
+}
+
+.inlineButtons {
+    display: inline-flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 auto;
+}
+
+.termsText {
+    padding-left: 5px;
+}
+
+.agentBubble {
+    margin: auto;
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 10px;
+    transition-duration: 0.5s;
+}
+
+    .agentBubble:hover {
+        transform: scale(1.03);
+    }
+
+.agentName {
+    margin: auto;
+    font-size: x-large;
+    background-color: rgba(0, 0, 0, 0.226);
+    width: 10em;
+    border-radius: 10px;
+}
+
+.meter-buttons {
+    margin-top: -20px;
+}
+
+.feedback {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.feedbackInput {
+    width: 80%;
+    height: 100px;
+    margin-top: 15px;
+}
+
+.title {
+    font-size: xx-large;
+    padding: 10px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.container,
+.navbar {
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    padding: 0;
+}
+
+.inputTypes {
+    margin: auto;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.inputBoxes {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.bi-envelope-fill,
+.bi-telephone-fill {
+    color: rgb(60, 60, 60);
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 8px;
+    margin-right: 5px;
+}
+
+.registerForms {
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+}
+
+.registerLabel {
+    display: inline-block;
+    width: 100px;
+    text-align: left;
+}
+
+.inputBox,
+select {
+    width: 150px;
+}
+
+.registerText,
+.inputBox {
+    margin-bottom: 2px;
+}
+
+.form {
+    align-items: center;
+}
+
+button {
+    margin-top: 10px;
+}
+
+pre {
+    background-color: rgba(0, 0, 0, 0.762);
+    width: 20em;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    color: rgb(34, 188, 34);
+}
+
+.navbar {
+    padding: 10px;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.099);
+    border-color: black;
+    margin-top: 0;
+    flex-grow: 1;
+    margin-bottom: 0;
+}
+
+.inner-container {
+    overflow-x: auto;
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link:focus {
+    color: white;
+    background-color: grey;
+}
+
+.bubble {
+    background-color: rgba(255, 255, 255, 0.582);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.bubble2 {
+    background-color: rgba(255, 255, 255, 0.916);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.outter-container {
+    background-color: rgba(255, 255, 255, 0.555);
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.imageArrayPictures {
+    width: 100%;
+}
+
+.bubble3 {
+    background-color: rgba(255, 255, 255, 0.582);
+    border-radius: 10px;
+    height: 6.7em;
+    padding: 2px;
+    width: 100%;
+    height: 7em;
+    transition-duration: 0.5s;
+}
+
+.outter-bubble {
+    background-color: rgba(255, 255, 255, 0.582);
+    border-radius: 10px;
+    padding: 2px;
+    width: 100%;
+    transition-duration: 0.5s;
+}
+
+.imageArrayHeader {
+    margin-top: 10px;
+}
+
+.imageArrayTable {
+    margin: 0;
+    margin-top: -20px;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageArrayPictures {
+    border-radius: 10px;
+    width: 9em;
+    height: 7em;
+    display: block;
+    margin: auto;
+    transition-duration: 0.5s;
+}
+
+    .imageArrayPictures:hover {
+        transform: scale(1.05);
+    }
+
+    .imageArrayPictures:hover {
+        cursor: pointer;
+    }
+
+.imageArrayTable th,
+.imageArrayTable td {
+    background-color: rgba(255, 255, 255, 0.384);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+    .imageArrayTable td.text {
+        width: 80%;
+    }
+
+.image-text-title {
+    padding: 10px;
+    font-size: large;
+    margin-bottom: -15px;
+    text-align: left;
+    text-decoration: underline;
+    color: rgb(0, 0, 137);
+    transition-duration: 0.2s;
+}
+
+    .image-text-title:hover {
+        cursor: pointer;
+        color: rgb(76, 90, 223);
+    }
+
+.image-text-description {
+    font-size: small;
+    text-align: left;
+    padding: 10px;
+}
+
+select {
+    margin: auto;
+    margin-bottom: -20px;
+}
+
+.underline-hover {
+    color: white;
+    text-decoration: none;
+}
+
+    .underline-hover:hover {
+        color: white;
+        text-decoration: underline;
+    }
+
+
+#inputDescription {
+    display: none;
+    visibility: hidden;
+    font-weight: 600;
+}
+
+#canvasBallWindow {
+    background-color: grey;
+    width: 96%;
+    border-radius: 10px;
+    margin: 10px auto;
+}
+
+.lillypads {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.lillypad {
+    position: relative;
+    margin: 0 auto;
+    width: 7em;
+    transition-duration: 0.5s;
+}
+
+    .lillypad:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+
+#frogLeft,
+#frogCenter,
+#frogRight {
+    width: 10em;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+#frogLeft,
+#frogRight {
+    visibility: hidden;
+}
+
+.frogLeft {
+    position: sticky;
+    left: 0;
+}
+
+.frogRight {
+    position: absolute;
+    right: 0;
+}
+
+hr {
+    width: 60%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+body {
+    background-image: url("https://media.gettyimages.com/id/663261182/photo/northern-lights-in-mount-kirkjufell-iceland-with-a-man-passing-by.jpg?s=612x612&w=0&k=20&c=HnhkVPYRXShUWJEcZe3KEBNrOo51ImxPccjUg34MXt4=");
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    backdrop-filter: blur(10px);
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    color: white;
+    width:100%;
+    text-align: center;
+    justify-content:center;    
+    justify-items:center;
+    display:flex;
+    margin: 0 auto;
+
+}
+
+.br{
+    margin-top:60px;
+}
+
+h1,
+a,
+h2 {
+    color: rgb(0, 0, 0);
+}
+
+.navbar,
+footer {
+    color: white;
+    background-color: rgb(46, 46, 46);
+}
+
+.strongPassword {
+    font-size: medium;
+    color: rgb(54, 54, 54);
+    background-color: rgba(128, 128, 128, 0.527);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.pumpkinPie {
+    width: 200px;
+    transition-duration: 0.2s;
+    border: 0cap;
+    background-color: grey;
+    border-radius: 10px;
+}
+
+    .pumpkinPie:hover {
+        transform: scale(1.02);
+        cursor: pointer;
+    }
+
+.pieText {
+    margin: 20px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.328);
+    border-radius: 10px;
+}
+
+#pieText {
+    display: none;
+}
+
+.clock {
+    font-size: x-large;
+}
+
+#coin {
+    background-color: rgba(0, 0, 0, 0.176);
+    padding: 10px;
+    width: 10em;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+#coinIcon {
+    width: 100px;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    margin: 0 auto;
+}
+
+/* change all input fields to same height */
+select,
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="state"],
+input[type="city"],
+input[type="name"] {
+    height: 30px;
+}
+
+/* Remove Arrows/Spinners from Number inputs */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+@media only screen and (min-width: 767px) {
+    .container {
+        width: 767px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .item-container {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .item-container,
+    .inner-container,
+    .container,
+    .bubble {
+        width: 100%;
+    }
+}

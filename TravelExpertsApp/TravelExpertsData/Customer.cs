@@ -6,16 +6,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace TravelExpertsData;
 
-[Table("Customers")]
 [Index("AgentId", Name = "EmployeesCustomers")]
 public partial class Customer
 {
     [Key]
     public int CustomerId { get; set; }
-
-    [Required]
-    [StringLength(50)]
-    public string CustPassword { get; set; } = null!;
 
     [StringLength(25)]
     public string CustFirstName { get; set; } = null!;
@@ -44,15 +39,18 @@ public partial class Customer
     [StringLength(20)]
     public string CustBusPhone { get; set; } = null!;
 
-    [Required]
     [StringLength(50)]
-    public string CustEmail { get; set; } = null!;    
-    
-    [Required]
-    [StringLength(50)]
-    public string CustUsername { get; set; } = null!;
+    public string CustEmail { get; set; } = null!;
 
     public int? AgentId { get; set; }
+
+    [StringLength(50)]
+    [Unicode(false)]
+    public string? CustUsername { get; set; }
+
+    [StringLength(50)]
+    [Unicode(false)]
+    public string? CustPassword { get; set; }
 
     [ForeignKey("AgentId")]
     [InverseProperty("Customers")]

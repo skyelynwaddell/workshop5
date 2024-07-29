@@ -1,24 +1,190 @@
 ﻿@{
     ViewData["Title"] = "Signup";
 }
-<div>
-    <h1>Signup</h1>
-    <div>
-        <form class="d-flex col" asp-action="RegisterUser">
-            @* Email *@
-            <label class="form-label" for="username">Username</label>
-            <input class="mb-2 form-control" type="text" name="username" id="username" value="" placeholder="Enter username..." />
+<!-- Main Container -->
+<fieldset class="outter-container">
+    <table class="table2">
+        <tr>
+            <th>
+                <div class="inner-container">
+                    <h1 class="title">Register</h1>
+                    <hr />
 
-            @* Password *@
-            <label class="form-label" for="password">Password</label>
-            <input class="mb-2 form-control" type="text" name="password" id="password" value="" placeholder="Enter password..." />
-            
-            @* Confirm Password *@
-            <label class="form-label" for="confirmpassword">Confirm Password</label>
-            <input class="mb-2 form-control" type="text" name="confirmpassword" id="confirmpassword" value="" placeholder="Confirm password..." />
+                    <div class="outter-bubble">
+                        <table class="table2">
+                            <tr>
+                                <th class="bubble">
 
-            @* Signup Button *@
-            <button type="submit" class="btn btn-primary">Signup</button>
-        </form>
+                                    <!-- Form Submission -->
+                                    <form onsubmit="return registerButton();" id="registerForm" name="registerForm">
+                                        <div class="registerForms">
+
+                                            <!-- Dynamic Input Description -->
+                                            <div class="inputDescription">
+                                                <p id="inputDescription" class="strongPassword">Loading...</p>
+                                            </div>
+
+                                            <!-- Email -->
+                                            <div class="registerBlock">
+                                                <p class="registerLabel">Email: </p>
+                                                <input required class="inputBox"
+                                                       autocomplete="email"
+                                                       onfocus="registerInputFocus('registerEmail');"
+                                                       onblur="registerInputBlur();"
+                                                       placeholder="Email" type="email"
+                                                       name="Email"
+                                                       id="registerEmail" />
+                                            </div>
+
+                                            <!-- Username -->
+                                            <div class="registerBlock">
+                                                <p class="registerLabel">Username: </p>
+                                                <input required class="inputBox"
+                                                       autocomplete="name"
+                                                       onfocus="registerInputFocus('registerUsername');"
+                                                       onblur="registerInputBlur();"
+                                                       placeholder="Username" type="name"
+                                                       name="Username"
+                                                       id="registerUsername" />
+                                            </div>
+
+                                            <!-- Password -->
+                                            <div class="registerBlock">
+                                                <p class="registerLabel">Password: </p>
+                                                <input required class="inputBox"
+                                                       onfocus="registerInputFocus('registerPassword1');"
+                                                       onblur="registerInputBlur();"
+                                                       oninput="checkPasswordStrength(); matchPassword();"
+                                                       placeholder="Password" type="password"
+                                                       name="Password"
+                                                       id="registerPassword1" />
+                                            </div>
+
+                                            <!-- Confirm Password -->
+                                            <div class="registerBlock">
+                                                <p class="registerLabel">Confirm Password: </p>
+                                                <input required class="inputBox"
+                                                       onfocus="registerInputFocus('registerPassword2');"
+                                                       onblur="registerInputBlur();"
+                                                       oninput=" matchPassword();"
+                                                       placeholder="Confirm Password" type="password"
+                                                       name="Confirmed Password"
+                                                       id="registerPassword2" />
+                                            </div>
+
+                                            <!-- Country -->
+                                            <div class="registerBlock">
+                                                <p class="registerLabel">Country: </p>
+                                                <select id="registerCountry"
+                                                        name="Country"
+                                                        onfocus="registerInputFocus('registerCountry');"
+                                                        onblur="registerInputBlur();"
+                                                        onchange="changeCountry(this);">
+                                                    <option id="Canada" name="Canada" value="country1">Canada</option>
+                                                    <option id="USA" name="USA" value="country2">USA</option>
+                                                </select>
+                                                <br>
+                                            </div>
+
+                                            <!-- Province/State -->
+                                            <div class="registerBlock">
+                                                <p id="provinceText" class="registerLabel provinceText">Province</p>
+                                                <input required class="inputBox"
+                                                       onfocus="registerInputFocus('registerProvince');"
+                                                       onblur="registerInputBlur();"
+                                                       placeholder="Province" type="state"
+                                                       name="Province"
+                                                       id="registerProvince" />
+                                            </div>
+
+                                            <!-- City -->
+                                            <div class="registerBlock">
+                                                <p class="registerLabel">City: </p>
+                                                <input required class="inputBox"
+                                                       onfocus="registerInputFocus('registerCity');"
+                                                       onblur="registerInputBlur();"
+                                                       placeholder="City" type="city"
+                                                       name="City"
+                                                       id="registerCity" />
+                                            </div>
+
+                                            <!-- Postal/Zip Code -->
+                                            <div class="registerBlock">
+                                                <p id="postalCodeText" class="registerLabel">Postal Code: </p>
+                                                <input required class="inputBox"
+                                                       onfocus="registerInputFocus('postalCode');"
+                                                       onblur="registerInputBlur();"
+                                                       placeholder="Postal Code" type="text"
+                                                       name="Postal Code"
+                                                       id="postalCode" />
+                                            </div>
+
+                                            <!-- Travel Card -->
+                                            <div class="registerBlock">
+                                                <p class="registerLabel">Travel Card: </p>
+                                                <input required class="inputBox"
+                                                       onfocus="registerInputFocus('travelCardNumber');"
+                                                       onblur="registerInputBlur();"
+                                                       placeholder="Travel Card No." type="number"
+                                                       name="Travel Card Number"
+                                                       id="travelCardNumber" min=1 max=999999999 />
+                                            </div>
+
+                                            <!-- Password Strength -->
+                                            <div class="passStrength">
+                                                <h2 id="strongPassword"
+                                                    class="strongPassword">
+                                                    Password Strength: WEAK
+                                                    ⛔
+                                                </h2>
+                                            </div>
+
+                                            <!-- Do Passwords Match -->
+                                            <div class="passwordMatch">
+                                                <h2 id="passwordMatch"
+                                                    class="strongPassword">
+                                                    Password must not be
+                                                    empty.
+                                                </h2>
+                                            </div>
+
+
+
+                                            <!-- Robot Check / Agree to terms -->
+                                            <div class="bubble2">
+                                                <div class="robotCheck">
+                                                    <p class="robotCheck">
+                                                        I agree to the <a class="termsText"
+                                                                          href="./terms-conditions.html">
+                                                            terms
+                                                            and conditions
+                                                        </a>
+                                                    </p>
+                                                    <input type="checkbox" id="robotCheck"
+                                                           required />
+                                                </div>
+                                            </div>
+
+                                            <div>
+
+                                                <!-- Reset Form Button -->
+                                                <button type="reset"
+                                                        onclick="return resetButton()"
+                                                        class="btn btn-primary button">
+                                                    Reset
+                                                </button>
+
+                                                <!-- Sign Up Button -->
+                                                <input value="Sign Up" type="submit"
+                                                       class="btn btn-primary button">
+                                            </div>
+                                    </form>
+                    </div>
+            </th>
+        </tr>
+    </table>
     </div>
-</div>
+    </th>
+    </tr>
+    </table>
+</fieldset>

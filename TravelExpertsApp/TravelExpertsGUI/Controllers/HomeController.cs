@@ -30,7 +30,7 @@ namespace TravelExpertsGUI.Controllers
         /// Contact Us [GET]
         /// </summary>
         /// <returns></returns
-        public IActionResult ContactUs()
+        public IActionResult Contact()
         {
             return View();
         }

@@ -1,8 +1,88 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<!-- Travel Pictures -->
+<div id="carouselExampleIndicators" class="carousel slide">
+
+    <!-- Carousel Mini Indicators (bottom little buttons) -->
+    <div class="carousel-indicators">
+
+        <!-- Button 1 -->
+        <button type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+
+        <!-- Button 2 -->
+        <button type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+
+        <!-- Button 3 -->
+        <button type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+
+        <!-- Main carousel picture -->
+        <div class="carousel-item active">
+            <img src="https://media.gettyimages.com/id/1357530144/photo/young-family-having-fun-traveling-together.jpg?s=612x612&w=0&k=20&c=9n0yR3q7w4ReuTiNA1k8D4BOl7__ZJ9K4ixT4kNhYZ8="
+                 class="d-block w-100" alt="..." />
+        </div>
+
+        <!-- Second carousel picture -->
+        <div class="carousel-item">
+            <img src="https://media.gettyimages.com/id/1465916031/photo/the-way-to-the-plane.jpg?s=612x612&w=0&k=20&c=jTalv0DdGZa76E6qrSjH-2rmTp2NNHvdgSbQBED3pP8="
+                 class="d-block w-100" alt="..." />
+        </div>
+
+        <!-- Third carousel picture -->
+        <div class="carousel-item">
+            <img src="https://media.gettyimages.com/id/155439315/photo/passenger-airplane-flying-above-clouds-during-sunset.jpg?s=612x612&w=0&k=20&c=LJWadbs3B-jSGJBVy9s0f8gZMHi2NvWFXa3VJ2lFcL0="
+                 class="d-block w-100" alt="..." />
+        </div>
+    </div>
+
+    <!-- Carousel Previous Button -->
+    <button class="carousel-control-prev" type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+
+    <!-- Carousel Next Button -->
+    <button class="carousel-control-next" type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
+
+<!-- Travel Experts Title -->
+<fieldset class="outter-container">
+    <table class="table2">
+        <tr>
+            <th>
+                <div class="inner-container">
+                    <h1 class="title">Welcome to Travel Experts!</h1>
+                    <hr />
+                    <div class="outter-bubble">
+                        <table class="table2">
+                            <tr>
+                                <th class="bubble">
+                                    <h4>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing
+                                        elit.
+                                        Incidunt in magni laboriosam! Perferendis obcaecati
+                                        itaque
+                                        maiores illum laudantium? Minima animi optio obcaecati
+                                        aliquid sit vitae vero quod modi pariatur itaque.
+                                    </h4>
+                                </th>
+                            </tr>
+                        </table>
+    </table>
+</fieldset>

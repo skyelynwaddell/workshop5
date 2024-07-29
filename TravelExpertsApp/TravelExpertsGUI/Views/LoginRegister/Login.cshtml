@@ -1,20 +1,76 @@
 ﻿@{
     ViewData["Title"] = "Login";
 }
-<div>
-    <h1>Login</h1>
-    <div>
-        <form class="d-flex col" asp-action="Login">
-            @* Username *@
-            <label class="form-label" for="username">Username</label>
-            <input class="mb-2 form-control" type="text" name="username" id="username" value="" placeholder="Enter username..." />
+<!-- Main Container -->
+<fieldset class="outter-container">
+    <table class=table2>
+        <tr>
+            <th>
+                <div class="inner-container">
+                    <h1 class="title">Login</h1>
+                    <hr />
 
-            @* Password *@
-            <label class="form-label" for="password">Password</label>
-            <input class="mb-2 form-control" type="text" name="password" id="password" value="" placeholder="Enter password..." />
+                    <div class="outter-bubble">
+                        <table class="table2">
+                            <tr>
+                                <th class="bubble">
 
-            @* Login Button *@
-            <button type="submit" class="btn btn-primary">Login</button>
-        </form>
+                                    <!-- Form Submission -->
+                                    <form onsubmit="return loginButton()">
+                                        <div class="registerForms">
+
+                                            <!-- Email -->
+                                            <div class="registerBlock">
+                                                <p class="registerLabel">Email: </p>
+                                                <input required class="inputBox"
+                                                       placeholder="Email" type="email" name="Email"
+                                                       id="registerEmail" />
+                                            </div>
+
+                                            <!-- Password -->
+                                            <div class="registerBlock">
+                                                <p class="registerLabel">Password: </p>
+                                                <input required class="inputBox"
+                                                       placeholder="Password" type="password"
+                                                       name="password"
+                                                       id="registerPassword1" />
+                                            </div>
+
+                                            <!-- Robot Check / Agree to terms -->
+                                            <div class="bubble2">
+                                                <div class="robotCheck">
+                                                    <p class="robotCheck">
+                                                        I agree to the <a class="termsText"
+                                                                          href="./terms-conditions.html">
+                                                            terms
+                                                            and conditions
+                                                        </a>
+                                                    </p>
+                                                    <input type="checkbox" id="robotCheck"
+                                                           required />
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <!-- Reset Form Button -->
+                                                <button type="reset"
+                                                        onclick="return resetButton()"
+                                                        class="btn btn-primary button">
+                                                    Reset
+                                                </button>
+
+                                                <!-- Sign Up Button -->
+                                                <input value="Login" type="submit"
+                                                       class="btn btn-primary button">
+                                            </div>
+
+                                    </form>
+                    </div>
+            </th>
+        </tr>
+    </table>
     </div>
-</div>
+    </th>
+    </tr>
+    </table>
+</fieldset>

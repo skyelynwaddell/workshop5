@@ -31,26 +31,24 @@ public partial class Customer
     public string CustPostal { get; set; } = null!;
 
     [StringLength(25)]
-    public string? CustCountry { get; set; }
+    public string CustCountry { get; set; } = null!;
 
     [StringLength(20)]
-    public string? CustHomePhone { get; set; }
+    public string CustHomePhone { get; set; } = null!;
 
     [StringLength(20)]
-    public string CustBusPhone { get; set; } = null!;
+    public string? CustBusPhone { get; set; }
 
     [StringLength(50)]
-    public string CustEmail { get; set; } = null!;
+    public string? CustEmail { get; set; }
+
+    [StringLength(50)]
+    public string CustUsername { get; set; } = null!;
+
+    [StringLength(50)]
+    public string CustPassword { get; set; } = null!;
 
     public int? AgentId { get; set; }
-
-    [StringLength(50)]
-    [Unicode(false)]
-    public string? CustUsername { get; set; }
-
-    [StringLength(50)]
-    [Unicode(false)]
-    public string? CustPassword { get; set; }
 
     [ForeignKey("AgentId")]
     [InverseProperty("Customers")]

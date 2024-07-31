@@ -1,94 +1,98 @@
 ﻿@{
     ViewData["Title"] = "Contact Us";
 }
- <!-- Contact Us Fieldset -->
-    <fieldset class="outter-container">
-      <table class="table2">
+<!-- Contact Us Fieldset -->
+<fieldset class="outter-container">
+    <table class="table2">
         <tr>
-          <th>
-            <div class="inner-container">
-              <h1 class="title">Contact Us</h1>
-              <hr />
-              <div class="outter-bubble">
-                <table class="table2">
-                  <tr>
-                    <th class="bubble agentBubble">
-
-                      <!-- Email Icon -->
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                        class="bi bi-envelope-fill" viewBox="0 0 16 16">
-                        <path
-                          d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z" />
-                      </svg>
-      
-                      <!-- Contact Email -->
-                      contact@travelexperts.ca
-                    </th>
-                    <th class="bubble agentBubble">
-
-                      <!-- Phone Icon -->
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                        class="bi bi-telephone-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd"
-                          d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
-                      </svg>
-      
-                      <!-- Contact Number -->
-                      (123) 123-4567
-                    </th>
-                  </tr>
-                </table>
-              </table>
-            </fieldset>    
-
-    <!-- Feedback fieldset -->
-    <fieldset class="outter-container">
-      <table class="table2">
-        <tr>
-          <th>
-            <div class="inner-container">
-              <h1 class="title">Tell us how we did! 😊</h1>
-              <hr />
-              <div class="outter-bubble">
-                <table class="table2">
-                  <tr>
-                    <th class="bubble">
-                      <form onsubmit="return feedbackSubmit()">
-                        <!-- Feedback Textbox Input Area -->
-                        <textarea required class="feedback feedbackInput" placeholder="Please let us know how you've enjoyed your experience!"></textarea>
-          
-                        <!-- Feedback reset button -->
-                        <div class="inlineButtons">
-                        <button
-                        onclick="return resetFeedbackButton();"
-                        type="reset"
-                        class="btn btn-primary feedback button">Reset</button>
-          
-                        <!-- Feedback submit button -->
-                        <button type="submit" class="btn btn-primary feedback button">Submit</button>
-                        
-                        </div>
-                        </form>
-                    </th>
-                  </tr>
-                </table>
-              </table>
-            </fieldset>    
-
-    <!-- Agents fieldset (contents generated w/ js see index.js) -->
-    <fieldset class="outter-container">
-      <table class="table2">
         <th>
-          <h1 class="title">Our Agents</h1>
-          <hr />
+        <div class="inner-container">
+            <h1 class="title">Contact Us</h1>
+            <hr />
+            <div class="outter-bubble">
+                <table class="table2">
+                    <tr>
+                        <th class="bubble agentBubble">
 
-          <div class="outter-bubble">
-            <table class=table2>
-              <tr id="agents"></tr>
-            </table>
-          </div>
+                            <!-- Email Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                 class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z" />
+                            </svg>
+
+                            <!-- Contact Email -->
+                            contact@travelexperts.ca
+                        </th>
+                        <th class="bubble agentBubble">
+
+                            <!-- Phone Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                 class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                      d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
+                            </svg>
+
+                            <!-- Contact Number -->
+                            (123) 123-4567
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </table>
+</fieldset>
+
+<!-- Feedback fieldset -->
+<fieldset class="outter-container">
+    <table class="table2">
+        <tr>
+        <th>
+        <div class="inner-container">
+            <h1 class="title">Tell us how we did! 😊</h1>
+            <hr />
+            <div class="outter-bubble">
+                <table class="table2">
+                    <tr>
+                        <th class="bubble">
+                            <form onsubmit="return feedbackSubmit()">
+                                <!-- Feedback Textbox Input Area -->
+                                <textarea required class="feedback feedbackInput" placeholder="Please let us know how you've enjoyed your experience!"></textarea>
+
+                                <!-- Feedback reset button -->
+                                <div class="inlineButtons">
+                                    <button
+                                        onclick="return resetFeedbackButton();"
+                                        type="reset"
+                                        class="btn btn-primary feedback button">
+                                        Reset
+                                    </button>
+
+                                    <!-- Feedback submit button -->
+                                    <button type="submit" class="btn btn-primary feedback button">Submit</button>
+
+                                </div>
+                            </form>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </table>
+</fieldset>
+
+<!-- Agents fieldset (contents generated w/ js see index.js) -->
+<fieldset class="outter-container">
+    <table class="table2">
+        <th>
+            <h1 class="title">Our Agents</h1>
+            <hr />
+
+            <div class="outter-bubble">
+                <table class=table2>
+                    <tr id="agents"></tr>
+                </table>
+            </div>
         </th>
-  </div>
-  </tr>
-  </table>
-  </fieldset>
+    </table>
+</fieldset>

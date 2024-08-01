@@ -16,7 +16,7 @@
                             <th class="bubble">
 
                             <!-- Form Submission -->
-                            <form onsubmit="return registerButton();" id="registerForm" name="registerForm">
+                            <form asp-action="RegisterUser" method="POST" id="registerForm" name="registerForm">
                                 <div class="registerForms">
 
                                     <!-- Dynamic Input Description -->
@@ -32,8 +32,48 @@
                                                onfocus="registerInputFocus('registerEmail');"
                                                onblur="registerInputBlur();"
                                                placeholder="Email" type="email"
-                                               name="Email"
+                                               name="email"
                                                id="registerEmail" />
+                                    </div>     
+                                    
+                                    <!-- First Name -->
+                                    <div class="registerBlock">
+                                        <p class="registerLabel">First Name: </p>
+                                        <input required class="inputBox"
+                                               placeholder="First Name" type="text"
+                                               name="firstname"
+                                    </div>       
+                                    
+                                    <!-- Last Name -->
+                                    <div class="registerBlock">
+                                        <p class="registerLabel">Last Name: </p>
+                                        <input required class="inputBox"
+                                               placeholder="Last Name" type="text"
+                                               name="lastname"
+                                    </div>   
+                                    
+                                    <!-- Address -->
+                                    <div class="registerBlock">
+                                        <p class="registerLabel">Address: </p>
+                                        <input required class="inputBox"
+                                               placeholder="Address" type="text"
+                                               name="address"
+                                    </div>    
+                                    
+                                    <!-- Home Phone -->
+                                    <div class="registerBlock">
+                                        <p class="registerLabel">Home Phone: </p>
+                                        <input required class="inputBox"
+                                               placeholder="Home Phone" type="text"
+                                               name="homephone"
+                                    </div>
+                                    
+                                    <!-- Business Phone -->
+                                    <div class="registerBlock">
+                                        <p class="registerLabel">Business Phone: </p>
+                                        <input class="inputBox"
+                                               placeholder="Business Phone" type="text"
+                                               name="busphone"
                                     </div>
 
                                     <!-- Username -->
@@ -44,7 +84,7 @@
                                                onfocus="registerInputFocus('registerUsername');"
                                                onblur="registerInputBlur();"
                                                placeholder="Username" type="name"
-                                               name="Username"
+                                               name="username"
                                                id="registerUsername" />
                                     </div>
 
@@ -56,7 +96,7 @@
                                                onblur="registerInputBlur();"
                                                oninput="checkPasswordStrength(); matchPassword();"
                                                placeholder="Password" type="password"
-                                               name="Password"
+                                               name="password"
                                                id="registerPassword1" />
                                     </div>
 
@@ -68,7 +108,7 @@
                                                onblur="registerInputBlur();"
                                                oninput=" matchPassword();"
                                                placeholder="Confirm Password" type="password"
-                                               name="Confirmed Password"
+                                               name="confirmpassword"
                                                id="registerPassword2" />
                                     </div>
 
@@ -76,7 +116,7 @@
                                     <div class="registerBlock">
                                         <p class="registerLabel">Country: </p>
                                         <select id="registerCountry"
-                                                name="Country"
+                                                name="country"
                                                 onfocus="registerInputFocus('registerCountry');"
                                                 onblur="registerInputBlur();"
                                                 onchange="changeCountry(this);">
@@ -93,7 +133,7 @@
                                                onfocus="registerInputFocus('registerProvince');"
                                                onblur="registerInputBlur();"
                                                placeholder="Province" type="state"
-                                               name="Province"
+                                               name="province"
                                                id="registerProvince" />
                                     </div>
 
@@ -104,7 +144,7 @@
                                                onfocus="registerInputFocus('registerCity');"
                                                onblur="registerInputBlur();"
                                                placeholder="City" type="city"
-                                               name="City"
+                                               name="city"
                                                id="registerCity" />
                                     </div>
 
@@ -115,19 +155,8 @@
                                                onfocus="registerInputFocus('postalCode');"
                                                onblur="registerInputBlur();"
                                                placeholder="Postal Code" type="text"
-                                               name="Postal Code"
+                                               name="postalcode"
                                                id="postalCode" />
-                                    </div>
-
-                                    <!-- Travel Card -->
-                                    <div class="registerBlock">
-                                        <p class="registerLabel">Travel Card: </p>
-                                        <input required class="inputBox"
-                                               onfocus="registerInputFocus('travelCardNumber');"
-                                               onblur="registerInputBlur();"
-                                               placeholder="Travel Card No." type="number"
-                                               name="Travel Card Number"
-                                               id="travelCardNumber" min=1 max=999999999 />
                                     </div>
 
                                     <!-- Password Strength -->

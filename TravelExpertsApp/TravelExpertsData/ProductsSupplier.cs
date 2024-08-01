@@ -24,6 +24,9 @@ public partial class ProductsSupplier
     [InverseProperty("ProductSupplier")]
     public virtual ICollection<BookingDetail> BookingDetails { get; set; } = new List<BookingDetail>();
 
+    [InverseProperty("ProductSupplier")]
+    public virtual ICollection<PackagesProductsSupplier> PackagesProductsSuppliers { get; set; } = new List<PackagesProductsSupplier>();
+
     [ForeignKey("ProductId")]
     [InverseProperty("ProductsSuppliers")]
     public virtual Product? Product { get; set; }
@@ -31,8 +34,4 @@ public partial class ProductsSupplier
     [ForeignKey("SupplierId")]
     [InverseProperty("ProductsSuppliers")]
     public virtual Supplier? Supplier { get; set; }
-
-    [ForeignKey("ProductSupplierId")]
-    [InverseProperty("ProductSuppliers")]
-    public virtual ICollection<Package> Packages { get; set; } = new List<Package>();
 }

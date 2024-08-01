@@ -39,6 +39,8 @@ public partial class TravelExpertsContext : DbContext
 
     public virtual DbSet<Package> Packages { get; set; }
 
+    public virtual DbSet<PackagesProductsSupplier> PackagesProductsSuppliers { get; set; }
+
     public virtual DbSet<Product> Products { get; set; }
 
     public virtual DbSet<ProductsSupplier> ProductsSuppliers { get; set; }
@@ -162,28 +164,19 @@ public partial class TravelExpertsContext : DbContext
                 .IsClustered(false);
 
             entity.Property(e => e.PkgAgencyCommission).HasDefaultValue(0m);
+        });
 
-            entity.HasMany(d => d.ProductSuppliers).WithMany(p => p.Packages)
-                .UsingEntity<Dictionary<string, object>>(
-                    "PackagesProductsSupplier",
-                    r => r.HasOne<ProductsSupplier>().WithMany()
-                        .HasForeignKey("ProductSupplierId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("Packages_Products_Supplie_FK01"),
-                    l => l.HasOne<Package>().WithMany()
-                        .HasForeignKey("PackageId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("Packages_Products_Supplie_FK00"),
-                    j =>
-                    {
-                        j.HasKey("PackageId", "ProductSupplierId")
-                            .HasName("aaaaaPackages_Products_Suppliers_PK")
-                            .IsClustered(false);
-                        j.ToTable("Packages_Products_Suppliers");
-                        j.HasIndex(new[] { "PackageId" }, "PackagesPackages_Products_Suppliers");
-                        j.HasIndex(new[] { "ProductSupplierId" }, "ProductSupplierId");
-                        j.HasIndex(new[] { "ProductSupplierId" }, "Products_SuppliersPackages_Products_Suppliers");
-                    });
+        modelBuilder.Entity<PackagesProductsSupplier>(entity =>
+        {
+            entity.HasKey(e => e.PackageProductSupplierId).HasName("PK__Packages__53E8ED991FB81A1F");
+
+            entity.HasOne(d => d.Package).WithMany(p => p.PackagesProductsSuppliers)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("Packages_Products_Supplie_FK00");
+
+            entity.HasOne(d => d.ProductSupplier).WithMany(p => p.PackagesProductsSuppliers)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("Packages_Products_Supplie_FK01");
         });
 
         modelBuilder.Entity<Product>(entity =>

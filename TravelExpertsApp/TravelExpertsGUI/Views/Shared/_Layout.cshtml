@@ -46,6 +46,20 @@
 
         @* Main Body *@
         <main role="main" class="pb-3">
+            @if (TempData.Keys.Contains("SuccessMessage"))
+            {
+                <h4 class="bg-success p-3 rounded">@TempData["SuccessMessage"]</h4>
+            }
+
+            @if (TempData.Keys.Contains("Message"))
+            {
+                <h4 class="bg-secondary p-3 rounded">@TempData["Message"]</h4>
+            }
+
+            @if (TempData.Keys.Contains("ErrorMessage"))
+            {
+                <h4 class="bg-danger p-3 rounded">@TempData["ErrorMessage"]</h4>
+            }
             @RenderBody()
         </main>
     </div>

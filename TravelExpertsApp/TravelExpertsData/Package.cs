@@ -38,7 +38,6 @@ public partial class Package
     [InverseProperty("Package")]
     public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
 
-    [ForeignKey("PackageId")]
-    [InverseProperty("Packages")]
-    public virtual ICollection<ProductsSupplier> ProductSuppliers { get; set; } = new List<ProductsSupplier>();
+    [InverseProperty("Package")]
+    public virtual ICollection<PackagesProductsSupplier> PackagesProductsSuppliers { get; set; } = new List<PackagesProductsSupplier>();
 }

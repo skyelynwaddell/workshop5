@@ -1,0 +1,95 @@
+﻿@using TravelExpertsGUI.Data
+@model BookingDMO
+
+@{
+    ViewData["Title"] = $"Package - {Model.PkgName}";
+}
+
+<form asp-action="Details" method="post">
+    <h1>Package Details</h1>
+    <table class="table table-dark">
+        <thead>
+            <tr class="justify-content-center align-items-center">
+                <th>@Html.DisplayNameFor(model => model.PkgName)</th>
+                <th>@Html.DisplayNameFor(model => model.PkgStartDate)</th>
+                <th>@Html.DisplayNameFor(model => model.PkgEndDate)</th>
+                <th>@Html.DisplayNameFor(model => model.PkgDesc)</th>
+                <th>@Html.DisplayNameFor(model => model.PkgBasePrice)</th>
+            </tr>
+        </thead>
+        <tbody class="text-center justify-content-center">
+            <tr>
+                <td>@Model.PkgName</td>
+                <td>@Model.PkgStartDate</td>
+                <td>@Model.PkgEndDate</td>
+                <td>@Model.PkgDesc</td>
+                <td>@Model.PkgBasePrice</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h1>Product Suppliers</h1>
+    <table class="table table-dark">
+        <thead>
+            <tr class="justify-content-center align-items-center">
+                <th>Supplier Name</th>
+                <th>Product Name</th>
+            </tr>
+        </thead>
+        <tbody class="text-center justify-content-center">
+            @foreach (var ps in Model.ProductSuppliers)
+            {
+                <tr>
+                    <td>@ps.SupName</td>
+                    <td>@ps.ProdName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="d-flex flex-column gap-4">
+        <div class="form-group">
+            <label asp-for="RegionId">Region</label>
+            <select asp-for="RegionId" class="form-control p-0">
+                @foreach (var region in Model.Regions)
+                {
+                    <option value="@region.RegionId">@region.RegionName</option>
+                }
+            </select>
+            <span asp-validation-for="RegionId" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="pkgClassId">Class</label>
+            <select asp-for="pkgClassId" class="form-control p-0">
+                @foreach (var pkgClass in Model.Classes)
+                {
+                    <option value="@pkgClass.ClassId">@pkgClass.ClassName</option>
+                }
+            </select>
+            <span asp-validation-for="pkgClassId" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="TripTypeId">Trip Type</label>
+            <select asp-for="TripTypeId" class="form-control p-0">
+                @foreach (var type in Model.TripTypes)
+                {
+                    <option value="@type.TripTypeId">@type.Ttname</option>
+                }
+            </select>
+            <span asp-validation-for="TripTypeId" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group">
+            <label asp-for="TripTypeId">Number of travelers</label>
+            <input asp-for="Travelers" class="form-control p-0">
+            <span asp-validation-for="Travelers" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary" asp-route-id=@Model.PackageId>Confirm</button>
+    </div>
+</form>
+<style>
+    
+</style>

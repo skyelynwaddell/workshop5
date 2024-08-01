@@ -1,0 +1,36 @@
+﻿@using TravelExpertsData
+@model IEnumerable<Package>
+
+@{
+    ViewData["Title"] = "Book Now!";
+}
+@*
+    Skye & Gavin
+*@
+<table class="table table-dark">
+    <thead>
+        <tr class="justify-content-center align-items-center">
+            <th>@Html.DisplayNameFor(model => model.PkgName)</th>
+            <th>@Html.DisplayNameFor(model => model.PkgStartDate)</th>
+            <th>@Html.DisplayNameFor(model => model.PkgEndDate)</th>
+            <th>@Html.DisplayNameFor(model => model.PkgDesc)</th>
+            <th>@Html.DisplayNameFor(model => model.PkgBasePrice)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="text-center justify-content-center">
+        @{
+            foreach (var package in Model)
+            {
+            <tr>
+                <td>@package.PkgName</td>
+                <td>@package.PkgStartDate</td>
+                <td>@package.PkgEndDate</td>
+                <td>@package.PkgDesc</td>
+                <td>@package.PkgBasePrice</td>
+                <td><a class="btn btn-primary" asp-controller="Bookings" asp-action="Details" asp-route-id=@package.PackageId>See more</a></td>
+            </tr>
+            }
+        }
+    </tbody>
+</table>

@@ -17,9 +17,9 @@ public partial class ProductsSupplier
     [Key]
     public int ProductSupplierId { get; set; }
 
-    public int? ProductId { get; set; }
+    public int ProductId { get; set; }
 
-    public int? SupplierId { get; set; }
+    public int SupplierId { get; set; }
 
     [InverseProperty("ProductSupplier")]
     public virtual ICollection<BookingDetail> BookingDetails { get; set; } = new List<BookingDetail>();

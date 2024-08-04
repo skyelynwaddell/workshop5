@@ -1,6 +1,86 @@
-﻿@{
+﻿@model TravelExpertsGUI.Models.RegisterViewModel
+@{
     ViewData["Title"] = "Signup";
 }
+<h2 class="display-3">Register</h2>
+<hr />
+<form asp-action="Signup" class="bg-light" method="post">
+    <div class="form-group">
+        <label asp-for="CustFirstName" class="control-label">First Name:</label>
+        <input asp-for="CustFirstName" class="form-control" />
+        <span asp-validation-for="CustFirstName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CustLastName" class="control-label">Last Name:</label>
+        <input asp-for="CustLastName" class="form-control" />
+        <span asp-validation-for="CustLastName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CustAddress" class="control-label">Address:</label>
+        <input asp-for="CustAddress" class="form-control" />
+        <span asp-validation-for="CustAddress" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CustCity" class="control-label">City:</label>
+        <input asp-for="CustCity" class="form-control" />
+        <span asp-validation-for="CustCity" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CustProv" class="control-label">Province:</label>
+        <input asp-for="CustProv" class="form-control" />
+        <span asp-validation-for="CustProv" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CustPostal" class="control-label">Postal Code:</label>
+        <input asp-for="CustPostal" class="form-control" />
+        <span asp-validation-for="CustPostal" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CustCountry" class="control-label">Country:</label>
+        <input asp-for="CustCountry" class="form-control" />
+        <span asp-validation-for="CustCountry" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CustHomePhone" class="control-label">Home Phone:</label>
+        <input asp-for="CustHomePhone" class="form-control" />
+        <span asp-validation-for="CustHomePhone" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CustBusPhone" class="control-label">Business Phone:</label>
+        <input asp-for="CustBusPhone" class="form-control" />
+        <span asp-validation-for="CustBusPhone" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CustEmail" class="control-label">Email:</label>
+        <input asp-for="CustEmail" type="email" class="form-control" />
+        <span asp-validation-for="CustEmail" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CustUsername" class="control-label">Username:</label>
+        <input asp-for="CustUsername" class="form-control" />
+        <span asp-validation-for="CustUsername" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CustPassword" class="control-label">Password:</label>
+        <input asp-for="CustPassword" type="password" class="form-control" />
+        <span asp-validation-for="CustPassword" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ConfirmPassword" class="control-label">Confirm Password:</label>
+        <input asp-for="ConfirmPassword" type="password" class="form-control" />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+    <div class="form-group text-center">
+        <button type="submit" class="btn btn-primary">Register</button>
+    </div>
+    <div class="form-group text-center">
+        <span >or Already have an account? <a asp-controller="Account" asp-action="Login">Login</a></span>
+    </div>
+    <div class="form-group text-center">
+        <button type="reset" class="btn btn-primary">Reset</button>
+    </div>
+</form>
+@*
 <!-- Main Container -->
 <fieldset class="outter-container">
     <table class="table2">
@@ -34,46 +114,46 @@
                                                placeholder="Email" type="email"
                                                name="email"
                                                id="registerEmail" />
-                                    </div>     
-                                    
+                                    </div>
+
                                     <!-- First Name -->
                                     <div class="registerBlock">
                                         <p class="registerLabel">First Name: </p>
                                         <input required class="inputBox"
                                                placeholder="First Name" type="text"
-                                               name="firstname"
-                                    </div>       
-                                    
+                                               name="firstname" />
+                                    </div>
+
                                     <!-- Last Name -->
                                     <div class="registerBlock">
                                         <p class="registerLabel">Last Name: </p>
                                         <input required class="inputBox"
                                                placeholder="Last Name" type="text"
-                                               name="lastname"
-                                    </div>   
-                                    
+                                               name="lastname" />
+                                    </div>
+
                                     <!-- Address -->
                                     <div class="registerBlock">
                                         <p class="registerLabel">Address: </p>
                                         <input required class="inputBox"
                                                placeholder="Address" type="text"
-                                               name="address"
-                                    </div>    
-                                    
+                                               name="address" />
+                                    </div>
+
                                     <!-- Home Phone -->
                                     <div class="registerBlock">
                                         <p class="registerLabel">Home Phone: </p>
                                         <input required class="inputBox"
                                                placeholder="Home Phone" type="text"
-                                               name="homephone"
+                                               name="homephone" />
                                     </div>
-                                    
+
                                     <!-- Business Phone -->
                                     <div class="registerBlock">
                                         <p class="registerLabel">Business Phone: </p>
                                         <input class="inputBox"
                                                placeholder="Business Phone" type="text"
-                                               name="busphone"
+                                               name="busphone" />
                                     </div>
 
                                     <!-- Username -->
@@ -159,25 +239,26 @@
                                                id="postalCode" />
                                     </div>
 
-                                    <!-- Password Strength -->
+                                    $1$<!-- Password Strength -->
                                     <div class="passStrength">
                                         <h2 id="strongPassword"
                                             class="strongPassword">
                                             Password Strength: WEAK
                                             ⛔
                                         </h2>
-                                    </div>
+                                    </div>#1#
 
-                                    <!-- Do Passwords Match -->
+                                    $1$<!-- Do Passwords Match -->
                                     <div class="passwordMatch">
                                         <h2 id="passwordMatch"
                                             class="strongPassword">
                                             Password must not be
                                             empty.
                                         </h2>
-                                    </div>
+                                    </div>#1#
 
 
+                                    $1$
                                     <!-- Robot Check / Agree to terms -->
                                     <div class="bubble2">
                                         <div class="robotCheck">
@@ -192,20 +273,18 @@
                                             <input type="checkbox" id="robotCheck"
                                                    required />
                                         </div>
-                                    </div>
+                                    </div>#1#
 
                                     <div>
-
+                                        <!-- Sign Up Button -->
+                                        <input value="Sign Up" type="submit"
+                                               class="btn btn-primary button">
                                         <!-- Reset Form Button -->
                                         <button type="reset"
                                                 onclick="return resetButton()"
                                                 class="btn btn-primary button">
                                             Reset
                                         </button>
-
-                                        <!-- Sign Up Button -->
-                                        <input value="Sign Up" type="submit"
-                                               class="btn btn-primary button">
                                     </div>
                                 </div>
                             </form>
@@ -216,3 +295,4 @@
         </tr>
     </table>
 </fieldset>
+*@

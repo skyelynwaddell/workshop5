@@ -56,8 +56,10 @@ public partial class TravelExpertsContext : DbContext
     public virtual DbSet<TripType> TripTypes { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=SKYE;Initial Catalog=TravelExperts;Integrated Security=True; TrustServerCertificate=true");
+    {
+        //Change the connection string here for your home computer / lab computer
+        optionsBuilder.UseSqlServer(@"Server=localhost\\sqlexpress;Database=InlandMarina;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True;");
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -168,7 +170,7 @@ public partial class TravelExpertsContext : DbContext
 
         modelBuilder.Entity<PackagesProductsSupplier>(entity =>
         {
-            entity.HasKey(e => e.PackageProductSupplierId).HasName("PK__Packages__53E8ED991FB81A1F");
+            entity.HasKey(e => e.PackageProductSupplierId).HasName("PK__Packages__53E8ED990D6330F5");
 
             entity.HasOne(d => d.Package).WithMany(p => p.PackagesProductsSuppliers)
                 .OnDelete(DeleteBehavior.ClientSetNull)

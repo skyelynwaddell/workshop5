@@ -1,4 +1,5 @@
-﻿// Created by Skye Waddell
+﻿/*
+// Created by Skye Waddell
 // May 2024 | OOSD - Web Development | Travel Project
 // CRPG-210-A
 
@@ -498,3 +499,4 @@ setInterval(updateClock, 1000);
 
 // Initial call to display the clock immediately
 updateClock();
+*/

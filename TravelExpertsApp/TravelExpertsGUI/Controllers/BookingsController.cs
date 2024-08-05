@@ -41,7 +41,7 @@ namespace TravelExpertsGUI.Controllers
             }
 
             // get package by id
-            var package = context.Packages.Include(p => p.ProductSuppliers).Where(p => p.PackageId == id).FirstOrDefault();
+            var package = context.Packages.Include(p => p.PackagesProductsSuppliers).Where(p => p.PackageId == id).FirstOrDefault();
 
             // add booking with customerId
             var booking = new Booking()
@@ -68,7 +68,7 @@ namespace TravelExpertsGUI.Controllers
                 BookingId = context.Bookings.Where(b => b.BookingDate == booking.BookingDate).FirstOrDefault().BookingId, // get new booking bookingId
                 RegionId = bookingDMO.RegionId,
                 ClassId = bookingDMO.pkgClassId,
-                ProductSupplierId = package.ProductSuppliers.First().ProductSupplierId
+                ProductSupplierId = package.PackagesProductsSuppliers.First().ProductSupplierId
             };
 
             // add bookingDetails with 

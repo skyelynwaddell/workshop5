@@ -1,7 +1,27 @@
-﻿@{
+﻿@model TravelExpertsData.Customer
+@{
     ViewData["Title"] = "Login";
 }
-<!-- Main Container -->
+
+<h2 class="display-3">Login</h2>
+<hr/>
+<form class="" asp-action="Login" method="post">
+    <div class="form-group">
+        <label asp-for="CustUsername" class="control-label">Username:</label>
+        <input asp-for="CustUsername" class="form-control" />
+        <span asp-validation-for="CustUsername" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CustPassword" class="control-label">Password:</label>
+        <input asp-for="CustPassword" class="form-control" type="password" />
+        <span asp-validation-for="CustPassword" class="text-danger"></span>
+    </div>
+    <div class="form-group text-center">
+        <button type="submit" class="btn btn-primary">Login</button>
+        <span > or <a asp-controller="Account" asp-action="Signup">Create an account</a></span>
+    </div>
+</form>
+@*<!-- Main Container -->
 <fieldset class="outter-container">
     <table class=table2>
         <tr>
@@ -53,16 +73,16 @@
                                     </div>
 
                                     <div>
+                                        <!-- Sign Up Button -->
+                                        <input value="Login" type="submit"
+                                               class="btn btn-primary button">
+                                        
                                         <!-- Reset Form Button -->
                                         <button type="reset"
                                                 onclick="return resetButton()"
                                                 class="btn btn-primary button">
                                             Reset
                                         </button>
-
-                                        <!-- Sign Up Button -->
-                                        <input value="Login" type="submit"
-                                               class="btn btn-primary button">
                                     </div>
                                 </div>
                             </form>
@@ -73,4 +93,4 @@
         </tr>
     </table>
 
-</fieldset>
+</fieldset>*@

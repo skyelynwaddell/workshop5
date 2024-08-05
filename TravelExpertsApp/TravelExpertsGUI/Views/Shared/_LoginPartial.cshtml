@@ -1,29 +1,28 @@
-﻿<div class="d-flex gap-2 align-items-center form-inline">
-    @if (User.Identity.IsAuthenticated)
+﻿<div class="navbar-nav">
+    @if (User.Identity!.IsAuthenticated)
     {
-        <div class="nav-item ">
+        <li class="nav-item ">
             <a class="nav-link text-white" asp-controller="Home" asp-action="Index" title="Welcome">
+                @* TODO: Fix Welcome message alignment *@
                 Welcome @User.Identity.Name
             </a>
-        </div>
-
-        <div class="nav-item">
-        </div>
-
-        <div class="nav-item">
-            <form class="form-inline" asp-controller="Account" asp-action="Logout">
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white" asp-controller="Account" asp-action="Profile">Profile</a>
+        </li>
+        <li class="nav-item">
+            <form class="form-inline" asp-controller="Account" asp-action="Logout" asp-route-returnUrl="@Url.Action("Index", "Home")">
                 <button type="submit" class="btn btn-secondary text-white">Logout</button>
             </form>
-        </div>
+        </li>
     }
     else
     {
-        <div class="nav-item">
-            <a class="btn btn-secondary" asp-controller="LoginRegister" asp-action="Signup">Signup</a>
-        </div>
-
-        <div class="nav-item">
-            <a class="btn btn-primary" asp-controller="LoginRegister" asp-action="Login">Login</a>
-        </div>
+        <li class="nav-item">
+            <a class="btn btn-secondary" asp-controller="Account" asp-action="Signup">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="btn btn-primary" asp-controller="Account" asp-action="Login">Login</a>
+        </li>
     }
 </div>

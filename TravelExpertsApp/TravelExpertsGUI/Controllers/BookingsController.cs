@@ -10,6 +10,26 @@ namespace TravelExpertsGUI.Controllers
     {
         TravelExpertsContext context = new TravelExpertsContext();
 
+        /*public IActionResult Index()
+        {
+            // Add verification
+
+            // get all bookings linked to customers
+            int id = 1;
+            var bookings = context.Bookings.Where(b => b.CustomerId == id);
+
+            return View(bookings);
+        }
+
+        // 
+        public IActionResult Bookings(int id)
+        {
+            // get booking
+            var booking = context.Bookings.Where(p => p.BookingId == id).FirstOrDefault();
+
+            return View(booking);
+        }*/
+
         public IActionResult Packages()
         {
             // get all packages

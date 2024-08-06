@@ -105,7 +105,8 @@ namespace TravelExpertsGUI.Controllers
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             // Upon logout, remove customer ID from session
             // This is done to ensure that the session does not persist after the user logs out
-            HttpContext.Session.Remove("CurrentCustomerId");
+            HttpContext.Session.Remove("CurrentCustomerID");
+            HttpContext.Session.Clear(); 
             // Redirect the user to the home page after logout
             return RedirectToAction("Index", "Home");
         }

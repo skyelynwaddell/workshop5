@@ -29,6 +29,29 @@ namespace TravelExpertsGUI.Controllers
             _context = context;
         }
 
+        [Authorize]
+        public IActionResult Bookings()
+        {
+            try
+            {
+                int? customerId = HttpContext.Session.GetInt32("CurrentCustomerID");
+                if (customerId == null)
+                {
+                    RedirectToAction("Login", "Account");
+                }
+
+                (List<BookingDetail> myBooking, decimal totalCost) = BookingDetailManager.GetDetailsByCustomer(_context, (int)customerId!);
+                ViewBag.TotalCost = totalCost;
+
+                return View(myBooking);
+            }
+            catch (Exception e)
+            {
+                TempData["ErrorMessage"] = e.Message;
+                return RedirectToAction("Login", "Account");
+            }
+        }
+
         /// <summary>
         /// Displays the login page.
         /// </summary>

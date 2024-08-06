@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿/*
+ *Author: Samuel Adeogun
+ * Author: Skye Waddell
+ */
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TravelExpertsData;
 using System.Security.Claims;

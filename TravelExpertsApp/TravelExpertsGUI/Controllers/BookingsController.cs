@@ -7,6 +7,9 @@ using TravelExpertsGUI.Data;
 
 namespace TravelExpertsGUI.Controllers
 {
+    /*
+     * Author: Samuel Adeogun
+     */
     public class BookingsController : Controller
     {
         private TravelExpertsContext _context { get; set; }

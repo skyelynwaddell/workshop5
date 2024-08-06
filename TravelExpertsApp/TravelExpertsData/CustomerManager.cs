@@ -1,4 +1,7 @@
-﻿namespace TravelExpertsData;
+﻿/*
+ * Author: Samuel Adeogun
+ */
+namespace TravelExpertsData;
 
 /// <summary>
 /// CustomerManager class provides methods for customer authentication, registration, updating, and finding.

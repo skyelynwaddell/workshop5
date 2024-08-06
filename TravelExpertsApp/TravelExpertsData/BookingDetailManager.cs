@@ -4,6 +4,9 @@ namespace TravelExpertsData;
 
 public class BookingDetailManager
 {
+    /*
+     * Author: Samuel Adeogun
+     */
     public static (List<BookingDetail> BookingDetails, decimal TotalCost) GetDetailsByCustomer(TravelExpertsContext db,
         int? customerId)
     {

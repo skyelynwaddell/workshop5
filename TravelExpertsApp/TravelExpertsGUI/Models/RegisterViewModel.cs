@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+/*
+ * Author: Samuel Adeogun
+ */
 namespace TravelExpertsGUI.Models;
 
 public class RegisterViewModel

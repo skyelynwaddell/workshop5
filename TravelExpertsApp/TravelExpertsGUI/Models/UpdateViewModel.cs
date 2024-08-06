@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿/*
+ * Author: Samuel Adeogun
+ */
+using System.ComponentModel.DataAnnotations;
 
 namespace TravelExpertsGUI.Models;
 

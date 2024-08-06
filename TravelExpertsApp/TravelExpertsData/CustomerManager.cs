@@ -1,4 +1,7 @@
-﻿namespace TravelExpertsData;
+﻿/*
+ * Author: Samuel Adeogun
+ */
+namespace TravelExpertsData;
 
 /// <summary>
 /// CustomerManager class provides methods for customer authentication, registration, updating, and finding.
@@ -15,8 +18,7 @@ public class CustomerManager
     public static Customer Authenticate(TravelExpertsContext db, string username, string password)
     {
         // Find the customer using the provided username and password
-        Customer? customer =
-            db.Customers.SingleOrDefault(c => c.CustUsername == username && c.CustPassword == password);
+        Customer? customer = db.Customers.SingleOrDefault(c => c.CustUsername == username && c.CustPassword == password);
         return customer!;
     }
 

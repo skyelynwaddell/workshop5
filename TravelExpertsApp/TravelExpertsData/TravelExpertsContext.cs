@@ -55,11 +55,13 @@ public partial class TravelExpertsContext : DbContext
 
     public virtual DbSet<TripType> TripTypes { get; set; }
 
+    /*
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         //Change the connection string here for your home computer / lab computer
         optionsBuilder.UseSqlServer(@"Data Source=LAPTOP-EIT06H1F\SQLEXPRESS;Initial Catalog=TravelExperts;Integrated Security=True;Encrypt=True;Trust Server Certificate=True");
     }
+    */
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

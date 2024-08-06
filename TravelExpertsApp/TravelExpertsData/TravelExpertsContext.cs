@@ -58,7 +58,7 @@ public partial class TravelExpertsContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         //Change the connection string here for your home computer / lab computer
-        optionsBuilder.UseSqlServer(@"Server=localhost\\sqlexpress;Database=TravelExperts;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True;");
+        optionsBuilder.UseSqlServer(@"Data Source=LAPTOP-EIT06H1F\SQLEXPRESS;Initial Catalog=TravelExperts;Integrated Security=True;Encrypt=True;Trust Server Certificate=True");
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

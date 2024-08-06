@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 using System.Net;
 using TravelExpertsData;
 using TravelExpertsGUI.Data;
@@ -10,7 +11,7 @@ namespace TravelExpertsGUI.Controllers
     {
         TravelExpertsContext context = new TravelExpertsContext();
 
-        /*public IActionResult Index()
+        public IActionResult Index()
         {
             // Add verification
 
@@ -28,7 +29,7 @@ namespace TravelExpertsGUI.Controllers
             var booking = context.Bookings.Where(p => p.BookingId == id).FirstOrDefault();
 
             return View(booking);
-        }*/
+        }
 
         public IActionResult Packages()
         {
@@ -52,6 +53,7 @@ namespace TravelExpertsGUI.Controllers
         {
             // redirect user if not logged in
 
+            // create booking dmo to send to view
             var bookingDMO = createBookingDMO(id, bookingDMOdata);
 
             if (!ModelState.IsValid)
@@ -106,25 +108,52 @@ namespace TravelExpertsGUI.Controllers
 
         private BookingDMO createBookingDMO (int id, BookingDMO bookingDMOdata = null)
         {
-            // get package by id
-            var package = context.Packages.Include(p => p.ProductSuppliers).Where(p => p.PackageId == id).FirstOrDefault();
+            var package = context.Packages
+                .Include(p => p.PackagesProductsSuppliers)
+                .ThenInclude(pps => pps.ProductSupplier)
+                .ThenInclude(ps => ps.Product)
+                .FirstOrDefault(p => p.PackageId == id);
 
-            // create new list of product suppliers for supplier name and product name
-            List<ProductSupplierDMO> productSupplierDMO = new List<ProductSupplierDMO>();
+            // Create a new list of product suppliers for supplier name and product name
+            List<ProductSupplierDMO> productSupplierDMOS = new List<ProductSupplierDMO>();
 
-            var suppliers = context.Suppliers.ToDictionary(s => s.SupplierId, s => s.SupName);
-            var products = context.Products.ToDictionary(p => p.ProductId, p => p.ProdName);
+            // Fetch all suppliers and products if needed
+            var productSuppliers = context.ProductsSuppliers
+                .Include(ps => ps.Product)
+                .Include(ps => ps.Supplier)
+                .ToList();
 
-            foreach (var ps in package.ProductSuppliers)
+            // Use dictionaries for fast lookups
+            var products = productSuppliers
+                .Select(ps => ps.Product)
+                .Distinct()
+                .ToDictionary(p => p.ProductId, p => p.ProdName);
+
+            var suppliers = productSuppliers
+                .Select(ps => ps.Supplier)
+                .Distinct()
+                .ToDictionary(s => s.SupplierId, s => s.SupName);
+
+            foreach (var pps in package.PackagesProductsSuppliers)
             {
-                var productSupplier = new ProductSupplierDMO()
-                {
-                    SupName = suppliers.ContainsKey(ps.SupplierId) ? suppliers[ps.SupplierId] : "Unknown Supplier",
-                    ProdName = products.ContainsKey(ps.ProductId) ? products[ps.ProductId] : "Unknown Product"
-                };
+                var productSupplier = productSuppliers
+                    .FirstOrDefault(ps => ps.ProductSupplierId == pps.ProductSupplierId);
 
-                productSupplierDMO.Add(productSupplier);
+                if (productSupplier != null)
+                {
+                    var productName = products.GetValueOrDefault(productSupplier.ProductId, "Unknown Product");
+                    var supplierName = suppliers.GetValueOrDefault(productSupplier.SupplierId, "Unknown Supplier");
+
+                    var productSupplierDMO = new ProductSupplierDMO()
+                    {
+                        ProdName = productName,
+                        SupName = supplierName
+                    };
+
+                    productSupplierDMOS.Add(productSupplierDMO);
+                }
             }
+
 
             // create dmo thingy???
             var bookingDMO = new BookingDMO()
@@ -138,7 +167,7 @@ namespace TravelExpertsGUI.Controllers
                 Regions = context.Regions.ToList(),
                 Classes = context.Classes.ToList(),
                 TripTypes = context.TripTypes.ToList(),
-                ProductSuppliers = productSupplierDMO,
+                ProductSuppliers = productSupplierDMOS,
                 RegionId = bookingDMOdata?.RegionId ?? null,
                 pkgClassId = bookingDMOdata?.pkgClassId ?? null,
                 TripTypeId = bookingDMOdata?.TripTypeId ?? null,

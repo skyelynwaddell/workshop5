@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
+using Microsoft.AspNetCore.Authorization;
 using TravelExpertsData;
 using TravelExpertsGUI.Data;
 
@@ -8,9 +9,37 @@ namespace TravelExpertsGUI.Controllers
 {
     public class BookingsController : Controller
     {
-        TravelExpertsContext context = new TravelExpertsContext();
+        private TravelExpertsContext _context { get; set; }
 
-        /*public IActionResult Index()
+        public BookingsController(TravelExpertsContext context)
+        {
+            _context = context;
+        }
+
+        [Authorize]
+        public IActionResult MyBookingDetails()
+        {
+            try
+            {
+                int? customerId = HttpContext.Session.GetInt32("CurrentCustomerID");
+                if (customerId == null)
+                {
+                    RedirectToAction("Login", "Account");
+                }
+
+                (List<BookingDetail> myBooking, decimal totalCost) = BookingDetailManager.GetDetailsByCustomer(_context, (int)customerId!);
+                ViewBag.TotalCost = totalCost;
+
+                return View(myBooking);
+            }
+            catch (Exception e)
+            {
+                TempData["ErrorMessage"] = e.Message;
+                return RedirectToAction("Login", "Account");
+            }
+        }
+
+        /*/*public IActionResult Index()
         {
             // Add verification
 
@@ -21,14 +50,14 @@ namespace TravelExpertsGUI.Controllers
             return View(bookings);
         }
 
-        // 
+        //
         public IActionResult Bookings(int id)
         {
             // get booking
             var booking = context.Bookings.Where(p => p.BookingId == id).FirstOrDefault();
 
             return View(booking);
-        }*/
+        }#1#
 
         public IActionResult Packages()
         {
@@ -91,7 +120,7 @@ namespace TravelExpertsGUI.Controllers
                 ProductSupplierId = package.PackagesProductsSuppliers.First().ProductSupplierId
             };
 
-            // add bookingDetails with 
+            // add bookingDetails with
             context.BookingDetails.Add(bookingDetails);
 
             context.SaveChanges();
@@ -146,6 +175,6 @@ namespace TravelExpertsGUI.Controllers
             };
 
             return bookingDMO;
-        }
+        }*/
     }
 }

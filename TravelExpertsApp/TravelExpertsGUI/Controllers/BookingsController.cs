@@ -20,10 +20,6 @@ namespace TravelExpertsGUI.Controllers
             _context = context;
         }
 
-        /* 
-         * Author: Gavin Here down
-         */
-
         /// <summary>
         /// Lists all packages
         /// </summary>
@@ -94,16 +90,20 @@ namespace TravelExpertsGUI.Controllers
             // save changes
             _context.SaveChanges();
 
+            var bookingId = _context.Bookings.Where(b => b.BookingDate == booking.BookingDate).FirstOrDefault().BookingId;
+            int? productSupplierId = package.PackagesProductsSuppliers.FirstOrDefault().ProductSupplierId;
+
             var bookingDetails = new BookingDetail()
             {
                 TripStart = package.PkgStartDate,
                 TripEnd = package.PkgEndDate,
                 BasePrice = package.PkgBasePrice,
                 AgencyCommission = package.PkgAgencyCommission,
-                BookingId = _context.Bookings.Where(b => b.BookingDate == booking.BookingDate).FirstOrDefault().BookingId, // get new booking bookingId
+                Description = package.PkgName,
+                BookingId = bookingId, // get new booking bookingId
                 RegionId = bookingDMO.RegionId,
                 ClassId = bookingDMO.pkgClassId,
-                ProductSupplierId = package.PackagesProductsSuppliers.First().ProductSupplierId
+                ProductSupplierId = productSupplierId ?? 1
             };
 
             // add bookingDetails
